@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block contenido %}
+<h1>Precios de supermercado</h1>
+<p class="bajada">Precios reales de productos en tiendas espanolas, sacados de Open Prices. Los sube la gente con foto del ticket.</p>
+
+<div class="nota">
+  <p>Lee esto antes de fiarte de nada de aqui abajo.</p>
+  <p>En Espana no existe ninguna API publica de precios de Mercadona, Carrefour, Dia o Lidl. No es que no la haya encontrado: no la hay. Lo unico abierto es Open Prices, una base colaborativa donde la cobertura espanola es escasa e irregular. Esta pagina ensena lo que hay, que puede ser poco.</p>
+</div>
+
+<section class="resultado">
+  <p class="resultado-intro">Registros de tiendas espanolas</p>
+  <p class="cifrota">{{ total }}</p>
+  <p class="rango">De <strong>{{ tiendas }}</strong> establecimientos distintos.</p>
+</section>
+
+<h2>Como se reparten los precios</h2>
+<p class="apunte">Toca la grafica para ver cuantos productos hay en cada tramo.</p>
+<div id="gr-precios"></div>
+
+<h2>Donde hay mas datos</h2>
+<div id="gr-tiendas"></div>
+
+<h2>Ultimos registros</h2>
+<ol class="lista">
+{%- for p in ultimos %}
+  <li class="item"><span class="pos"></span>
+    <span class="nombre">{{ p.producto }}</span>
+    <span class="valor">{{ p.precio }} €</span>
+    <span class="sub">{{ p.tienda }}{% if p.ciudad %} · {{ p.ciudad }}{% endif %}{% if p.fecha %} · {{ p.fecha }}{% endif %}</span>
+  </li>
+{%- endfor %}
+</ol>
+
+<h2>Si quieres que esto sirva de algo</h2>
+<p>La base mejora sola cuando alguien sube precios. Open Prices tiene aplicacion movil: escaneas el codigo de barras, fotografias la etiqueta y listo. Con unas semanas comprando y subiendo lo tuyo tendrias serie propia de tu supermercado habitual.</p>
+<p>La otra via seria raspar las webs de las cadenas. Tecnicamente es facil, pero se rompe cada vez que cambian el HTML y sus condiciones de uso lo prohiben expresamente. Yo no iria por ahi.</p>
+{% endblock %}
+
+{% block fuente %}
+<p>Fuente: Open Prices, de Open Food Facts. Licencia OdBL.</p>
+{% endblock %}
+
+{% block script %}
+<script id="datos" type="application/json">{{ datos_json | safe }}</script>
+<script>
+(function(){
+  const D = JSON.parse(document.getElementById("datos").textContent);
+  if(D.hist.cubos.length){
+    Grafica.histograma("#gr-precios", {cubos: D.hist.cubos, unidad: " €", titulo: "Reparto de precios"});
+  }
+  if(D.tiendas.length){
+    Grafica.barras("#gr-tiendas", {
+      datos: D.tiendas.map(t => ({x: t.nombre, y: t.cuantos})),
+      formato: v => Grafica.numero(v) + " registros",
+      titulo: "Registros por tienda"
+    });
+  }
+})();
+</script>
+{% endblock %}

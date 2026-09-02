@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Precios de supermercado en España</title>
+<meta name="description" content="Precios reales de productos en tiendas españolas recogidos por Open Prices, la base colaborativa de Open Food Facts.">
+<link rel="canonical" href="https://adrianezd.github.io/proyecciones-supermercado">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Precios de supermercado en España">
+<meta property="og:description" content="Precios reales de productos en tiendas españolas recogidos por Open Prices, la base colaborativa de Open Food Facts.">
+<meta property="og:locale" content="es_ES">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="color-scheme" content="light">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./estatico/estilo.css">
+
+</head>
+<body data-acento="supermercado">
+
+<nav class="barra" aria-label="Secciones">
+  <a class="marca" href="https://adrianezd.github.io/proyecciones/">Proyecciones</a>
+  <div class="enlaces"><a href="https://adrianezd.github.io/proyecciones-bolsa/">Bolsa</a><a href="https://adrianezd.github.io/proyecciones-materias-primas/">Materias primas</a><a href="https://adrianezd.github.io/proyecciones-divisas/">Divisas</a><a href="https://adrianezd.github.io/proyecciones-bitcoin/">Bitcoin</a><a href="https://adrianezd.github.io/proyecciones-bonos/">Bonos</a><a href="https://adrianezd.github.io/proyecciones-vivienda/">Vivienda</a><a href="https://adrianezd.github.io/proyecciones-alquiler/">Alquiler</a><a href="https://adrianezd.github.io/proyecciones-gasolina/">Gasolina</a><a href="https://adrianezd.github.io/proyecciones-supermercado/" aria-current="page">Supermercado</a><a href="https://adrianezd.github.io/proyecciones-terremotos/">Terremotos</a><a href="https://adrianezd.github.io/proyecciones-sismos/">Sismos en Espana</a>
+  </div>
+</nav>
+
+<main class="marco">
+
+<h1>Precios de supermercado</h1>
+<p class="bajada">Precios reales de productos en tiendas espanolas, sacados de Open Prices. Los sube la gente con foto del ticket.</p>
+
+<div class="nota">
+  <p>Lee esto antes de fiarte de nada de aqui abajo.</p>
+  <p>En Espana no existe ninguna API publica de precios de Mercadona, Carrefour, Dia o Lidl. No es que no la haya encontrado: no la hay. Lo unico abierto es Open Prices, una base colaborativa donde la cobertura espanola es escasa e irregular. Esta pagina ensena lo que hay, que puede ser poco.</p>
+</div>
+
+<section class="resultado">
+  <p class="resultado-intro">Registros de tiendas espanolas</p>
+  <p class="cifrota">39</p>
+  <p class="rango">De <strong>2</strong> establecimientos distintos.</p>
+</section>
+
+<h2>Como se reparten los precios</h2>
+<p class="apunte">Toca la grafica para ver cuantos productos hay en cada tramo.</p>
+<div id="gr-precios"></div>
+
+<h2>Donde hay mas datos</h2>
+<div id="gr-tiendas"></div>
+
+<h2>Ultimos registros</h2>
+<ol class="lista">
+  <li class="item"><span class="pos"></span>
+    <span class="nombre">71104001331000000100</span>
+    <span class="valor">1.0 €</span>
+    <span class="sub">Tienda sin identificar · 2026-09-02</span>
+  </li>
+  <li class="item"><span class="pos"></span>
+    <span class="nombre">Apfel-Brombeer-Himbeermark</span>
+    <span class="valor">1.65 €</span>
+    <span class="sub">Tienda sin identificar · 2026-08-10</span>
+  </li>
+  <li class="item"><span class="pos"></span>
+    <span class="nombre">Kartoffeln in Scheiben</span>
+    <span class="valor">1.95 €</span>
+    <span class="sub">Tienda sin identificar · 2026-08-10</span>
+  </li>
+  <li class="item"><span class="pos"></span>
+    <span class="nombre">Limetten</span>
+    <span class="valor">1.35 €</span>
+    <span class="sub">Tienda sin identificar · 2026-08-10</span>
+  </li>
+  <li class="item"><span class="pos"></span>
+    <span class="nombre">Wasa Knäckebrot Selection Mohn &amp; Meersalz</span>
+    <span class="valor">2.49 €</span>
+    <span class="sub">Tienda sin identificar · 2026-08-10</span>
+  </li>
+  <li class="item"><span class="pos"></span>
+    <span class="nombre">Frische Bio Eier</span>
+    <span class="valor">3.99 €</span>
+    <span class="sub">Tienda sin identificar · 2026-08-10</span>
+  </li>
+  <li class="item"><span class="pos"></span>
+    <span class="nombre">Körniger Frischkäse</span>
+    <span class="valor">1.41 €</span>
+    <span class="sub">Tienda sin identificar · 2026-08-10</span>
+  </li>
+  <li class="item"><span class="pos"></span>
+    <span class="nombre">Dinkel gepufft mit Honig gesüßt</span>
+    <span class="valor">1.79 €</span>
+    <span class="sub">Tienda sin identificar · 2026-08-10</span>
+  </li>
+  <li class="item"><span class="pos"></span>
+    <span class="nombre">Birnen</span>
+    <span class="valor">2.59 €</span>
+    <span class="sub">Tienda sin identificar · 2026-08-10</span>
+  </li>
+  <li class="item"><span class="pos"></span>
+    <span class="nombre">Zwieback ohne Zuckerzusatz</span>
+    <span class="valor">1.99 €</span>
+    <span class="sub">Tienda sin identificar · 2026-08-10</span>
+  </li>
+  <li class="item"><span class="pos"></span>
+    <span class="nombre">Hähnchen Filetstreifen</span>
+    <span class="valor">2.99 €</span>
+    <span class="sub">Tienda sin identificar · 2026-08-10</span>
+  </li>
+  <li class="item"><span class="pos"></span>
+    <span class="nombre">Wildlachs Portionen vom Filet</span>
+    <span class="valor">4.55 €</span>
+    <span class="sub">Tienda sin identificar · 2026-08-10</span>
+  </li>
+  <li class="item"><span class="pos"></span>
+    <span class="nombre">Haferflocken</span>
+    <span class="valor">0.95 €</span>
+    <span class="sub">Tienda sin identificar · 2026-08-10</span>
+  </li>
+  <li class="item"><span class="pos"></span>
+    <span class="nombre">vly High Protein v2.2</span>
+    <span class="valor">2.49 €</span>
+    <span class="sub">Tienda sin identificar · 2026-08-10</span>
+  </li>
+  <li class="item"><span class="pos"></span>
+    <span class="nombre">Skyr Natur</span>
+    <span class="valor">1.45 €</span>
+    <span class="sub">Tienda sin identificar · 2026-08-10</span>
+  </li>
+  <li class="item"><span class="pos"></span>
+    <span class="nombre">vly Fermentiertes Erzeugnis mit Ackerbohnenprotein, Natur v1.2</span>
+    <span class="valor">1.7 €</span>
+    <span class="sub">Tienda sin identificar · 2026-08-10</span>
+  </li>
+  <li class="item"><span class="pos"></span>
+    <span class="nombre">Apfel-Brombeer-Himbeermark</span>
+    <span class="valor">1.65 €</span>
+    <span class="sub">Tienda sin identificar · 2026-08-31</span>
+  </li>
+  <li class="item"><span class="pos"></span>
+    <span class="nombre">Brokkoli</span>
+    <span class="valor">1.79 €</span>
+    <span class="sub">Tienda sin identificar · 2026-08-31</span>
+  </li>
+  <li class="item"><span class="pos"></span>
+    <span class="nombre">Soja Natur</span>
+    <span class="valor">0.99 €</span>
+    <span class="sub">Tienda sin identificar · 2026-08-31</span>
+  </li>
+  <li class="item"><span class="pos"></span>
+    <span class="nombre">vly High Protein v2.2</span>
+    <span class="valor">2.49 €</span>
+    <span class="sub">Tienda sin identificar · 2026-08-31</span>
+  </li>
+  <li class="item"><span class="pos"></span>
+    <span class="nombre">Apfel-Mangomark</span>
+    <span class="valor">1.15 €</span>
+    <span class="sub">Tienda sin identificar · 2026-08-31</span>
+  </li>
+  <li class="item"><span class="pos"></span>
+    <span class="nombre">Nudeln Bio tortiglioni</span>
+    <span class="valor">0.85 €</span>
+    <span class="sub">Tienda sin identificar · 2026-08-31</span>
+  </li>
+  <li class="item"><span class="pos"></span>
+    <span class="nombre">Kartoffeln in Scheiben</span>
+    <span class="valor">1.95 €</span>
+    <span class="sub">Tienda sin identificar · 2026-08-31</span>
+  </li>
+  <li class="item"><span class="pos"></span>
+    <span class="nombre">vly Fermentiertes Erzeugnis mit Ackerbohnenprotein, Natur v1.2</span>
+    <span class="valor">1.7 €</span>
+    <span class="sub">Tienda sin identificar · 2026-08-31</span>
+  </li>
+  <li class="item"><span class="pos"></span>
+    <span class="nombre">Penne Gorgonzola mit feinem Blattspinat</span>
+    <span class="valor">2.99 €</span>
+    <span class="sub">Tienda sin identificar · 2026-08-31</span>
+  </li>
+</ol>
+
+<h2>Si quieres que esto sirva de algo</h2>
+<p>La base mejora sola cuando alguien sube precios. Open Prices tiene aplicacion movil: escaneas el codigo de barras, fotografias la etiqueta y listo. Con unas semanas comprando y subiendo lo tuyo tendrias serie propia de tu supermercado habitual.</p>
+<p>La otra via seria raspar las webs de las cadenas. Tecnicamente es facil, pero se rompe cada vez que cambian el HTML y sus condiciones de uso lo prohiben expresamente. Yo no iria por ahi.</p>
+
+
+<footer class="pie">
+
+<p>Fuente: Open Prices, de Open Food Facts. Licencia OdBL.</p>
+
+<p>Generado el 2026-09-02. Los datos se actualizan solos con una GitHub Action. Parte de <a href="https://adrianezd.github.io/proyecciones/">Proyecciones</a>.</p>
+</footer>
+</main>
+
+<script src="./estatico/grafica.js"></script>
+
+<script id="datos" type="application/json">{"hist": {"min": 0.85, "max": 4.79, "cubos": [{"desde": 0.85, "hasta": 1.047, "cuantas": 6}, {"desde": 1.047, "hasta": 1.244, "cuantas": 2}, {"desde": 1.244, "hasta": 1.441, "cuantas": 3}, {"desde": 1.441, "hasta": 1.638, "cuantas": 4}, {"desde": 1.638, "hasta": 1.835, "cuantas": 6}, {"desde": 1.835, "hasta": 2.032, "cuantas": 4}, {"desde": 2.032, "hasta": 2.229, "cuantas": 1}, {"desde": 2.229, "hasta": 2.426, "cuantas": 0}, {"desde": 2.426, "hasta": 2.623, "cuantas": 4}, {"desde": 2.623, "hasta": 2.82, "cuantas": 0}, {"desde": 2.82, "hasta": 3.017, "cuantas": 2}, {"desde": 3.017, "hasta": 3.214, "cuantas": 1}, {"desde": 3.214, "hasta": 3.411, "cuantas": 0}, {"desde": 3.411, "hasta": 3.608, "cuantas": 0}, {"desde": 3.608, "hasta": 3.805, "cuantas": 0}, {"desde": 3.805, "hasta": 4.002, "cuantas": 3}, {"desde": 4.002, "hasta": 4.199, "cuantas": 0}, {"desde": 4.199, "hasta": 4.396, "cuantas": 0}, {"desde": 4.396, "hasta": 4.593, "cuantas": 2}, {"desde": 4.593, "hasta": 4.79, "cuantas": 1}]}, "tiendas": [{"nombre": "Tienda sin identificar", "cuantos": 32}, {"nombre": "Mercadona", "cuantos": 7}]}</script>
+<script>
+(function(){
+  const D = JSON.parse(document.getElementById("datos").textContent);
+  if(D.hist.cubos.length){
+    Grafica.histograma("#gr-precios", {cubos: D.hist.cubos, unidad: " €", titulo: "Reparto de precios"});
+  }
+  if(D.tiendas.length){
+    Grafica.barras("#gr-tiendas", {
+      datos: D.tiendas.map(t => ({x: t.nombre, y: t.cuantos})),
+      formato: v => Grafica.numero(v) + " registros",
+      titulo: "Registros por tienda"
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
