@@ -64,7 +64,7 @@ def main() -> None:
     shutil.copytree(PROYECTO / "estatico", SALIDA / "estatico")
 
     precios = datos.precios_supermercado()
-    if len(precios) < 10:
+    if len(precios) < 5:
         print(f"  SALTADA     supermercado (solo {len(precios)} registros españoles)")
         (SALIDA / ".nojekyll").write_text("", encoding="utf-8")
         return

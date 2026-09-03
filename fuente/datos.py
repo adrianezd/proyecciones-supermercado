@@ -45,7 +45,7 @@ def _descargar(url: str, clave: str, params: dict | None = None) -> Any:
         return None
 
 
-def precios_supermercado(paginas: int = 6) -> list[dict]:
+def precios_supermercado(paginas: int = 30) -> list[dict]:
     """Ultimos precios en euros registrados en tiendas de España."""
     todo = []
 
@@ -73,14 +73,21 @@ def precios_supermercado(paginas: int = 6) -> list[dict]:
         lugar = it.get("location") or {}
         pais = (lugar.get("osm_address_country_code")
                 or lugar.get("osm_address_country") or "")
-        if pais and str(pais).lower() not in ("es", "spain", "españa"):
+        # Sin pais confirmado no podemos saber si es España: se descarta,
+        # no se asume. Antes un pais vacio colaba el registro sin filtrar.
+        if str(pais).lower() not in ("es", "spain", "españa"):
             continue
 
         producto = it.get("product") or {}
-        nombre = (producto.get("product_name")
-                  or it.get("product_code")
-                  or it.get("category_tag") or "")
+        nombre = (producto.get("product_name") or "").strip()
         if not nombre:
+            # Sin nombre de producto, el codigo de barras (p.ej.
+            # "7110400753454") no dice nada: se descarta. La categoria
+            # ("en:cheeses") al menos es legible, y se usa como ultimo
+            # recurso, limpiada de prefijos y guiones.
+            categoria = (it.get("category_tag") or "").split(":")[-1]
+            nombre = categoria.replace("-", " ").replace("_", " ").strip().capitalize()
+        if not nombre or nombre.isdigit():
             continue
 
         salida.append({
